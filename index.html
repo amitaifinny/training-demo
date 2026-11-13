@@ -2,10 +2,169 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex">
+    <title>CleanPro Training Demo</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
 </head>
 <body>
-    
+    <header class="site-header">
+        <a class="brand" href="#modules" aria-label="CleanPro Training home">
+            <img src="logo.png" alt="CleanPro logo">
+        </a>
+        <span class="demo-label">Demo</span>
+    </header>
+
+    <main>
+        <section class="page-heading">
+            <p class="eyebrow">Welcome back, Maria</p>
+            <h1>Your training</h1>
+            <p class="heading-copy"></p>
+        </section>
+
+        <section id="modules" class="tab-panel is-active" aria-labelledby="modules-tab">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">Learning path</p>
+                    <h2>Modules</h2>
+                </div>
+                <span class="progress-summary">3 of 14 complete</span>
+            </div>
+
+            <article class="module-card active-module">
+                <div class="module-card-top">
+                    <div>
+                        <span class="module-kicker">Module 1</span>
+                        <h3>Chemical Safety</h3>
+                    </div>
+                    <span class="module-count">3/5</span>
+                </div>
+                <div class="progress-track" aria-label="Chemical Safety progress: 3 of 5">
+                    <span class="progress-fill"></span>
+                </div>
+                <ul class="checklist">
+                    <li class="done"><span class="checkmark" aria-hidden="true">✓</span><span>Reading labels</span><small>Complete</small></li>
+                    <li class="done"><span class="checkmark" aria-hidden="true">✓</span><span>Protective equipment</span><small>Complete</small></li>
+                    <li class="done"><span class="checkmark" aria-hidden="true">✓</span><span>Storage</span><small>Complete</small></li>
+                    <li class="current"><span class="checkmark" aria-hidden="true">4</span><span>Mixing dangers</span><small>Current</small></li>
+                    <li><span class="checkmark" aria-hidden="true">5</span><span>Spill response</span><small>Not started</small></li>
+                </ul>
+                <button class="button primary-button module-action" type="button">Continue</button>
+            </article>
+
+            <article class="module-card locked-card" aria-label="Standard Cleaning Procedures locked">
+                <div class="module-card-top">
+                    <div><span class="module-kicker">Module 2</span><h3>Standard Cleaning Procedures</h3></div>
+                    <span class="lock-label" aria-hidden="true">🔒 Locked</span>
+                </div>
+                <p>Complete Chemical Safety to unlock this module.</p>
+                <div class="locked-progress"><span></span></div>
+                <span class="module-count locked-count">0/4</span>
+            </article>
+
+            <article class="module-card locked-card" aria-label="Customer Service Basics locked">
+                <div class="module-card-top">
+                    <div><span class="module-kicker">Module 3</span><h3>Customer Service Basics</h3></div>
+                    <span class="lock-label" aria-hidden="true">🔒 Locked</span>
+                </div>
+                <p>Complete the previous modules to unlock this module.</p>
+                <div class="locked-progress"><span></span></div>
+                <span class="module-count locked-count">0/3</span>
+            </article>
+        </section>
+
+        <section id="lesson" class="lesson-view" hidden aria-labelledby="lesson-heading">
+            <a class="lesson-back" href="#modules">← Back to modules</a>
+            <p class="eyebrow">MODULE 1 · LESSON 4 OF 5</p>
+            <h2 id="lesson-heading">Mixing dangers</h2>
+
+            <ol class="lesson-steps" aria-label="Lesson steps">
+                <li class="lesson-step is-current" data-step="1"><span class="step-marker">1</span><span>Read</span></li>
+                <li class="step-connector" aria-hidden="true">→</li>
+                <li class="lesson-step" data-step="2"><span class="step-marker">2</span><span>Watch</span></li>
+                <li class="step-connector" aria-hidden="true">→</li>
+                <li class="lesson-step" data-step="3"><span class="step-marker">3</span><span>Quiz</span></li>
+            </ol>
+
+            <div class="lesson-panel" data-lesson-panel="1">
+                <article class="card lesson-copy">
+                    <p>Never mix cleaning products unless the label says it is safe. Some combinations create toxic gases. Bleach should never be mixed with ammonia or with acidic cleaners such as vinegar or some bathroom products. Always read the label, use one product at a time, rinse surfaces between products, and ventilate the area. If you smell something strong or feel dizzy, leave the area and tell your supervisor.</p>
+                </article>
+                <button class="button primary-button lesson-action" type="button" data-lesson-next="2">Continue to video</button>
+            </div>
+
+            <div class="lesson-panel" data-lesson-panel="2" hidden>
+                <figure class="video-placeholder">
+                    <div class="play-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" role="img"><path d="M8 5.5v13L18 12 8 5.5z"></path></svg>
+                    </div>
+                    <figcaption>Video: Mixing dangers, demonstration (2 min)</figcaption>
+                </figure>
+                <button class="button primary-button lesson-action" type="button" data-lesson-next="3">Mark as watched</button>
+            </div>
+
+            <div class="lesson-panel" data-lesson-panel="3" hidden>
+                <article class="card lesson-copy">
+                    <p>Nice work. Take the quick quiz to finish this lesson.</p>
+                </article>
+                <button class="button primary-button lesson-action" type="button" data-tab-target="quiz">Take quiz</button>
+            </div>
+        </section>
+
+        <section id="quiz" class="tab-panel" aria-labelledby="quiz-tab" hidden>
+            <div class="section-heading"><div><p class="eyebrow">Module 1 · Checkpoint</p><h2>Quick quiz</h2></div><span class="question-number">Question 1 of 1</span></div>
+            <article class="quiz-card">
+                <h3>Which two products should never be mixed?</h3>
+                <form id="quiz-form">
+                    <fieldset>
+                        <legend class="sr-only">Choose an answer</legend>
+                        <label class="answer-option"><input type="radio" name="answer" value="correct"><span>Bleach and ammonia</span></label>
+                        <label class="answer-option"><input type="radio" name="answer" value="wrong"><span>Glass cleaner and water</span></label>
+                        <label class="answer-option"><input type="radio" name="answer" value="wrong"><span>Dish soap and water</span></label>
+                        <label class="answer-option"><input type="radio" name="answer" value="wrong"><span>All-purpose cleaner and a damp cloth</span></label>
+                    </fieldset>
+                    <button class="button primary-button" type="submit">Submit</button>
+                </form>
+                <div id="quiz-feedback" class="banner" role="status" aria-live="polite" hidden></div>
+                <div class="quiz-actions">
+                    <button id="next-module" class="button primary-button" type="button" disabled hidden>Next module</button>
+                    <button id="retake-quiz" class="button primary-button" type="button" hidden>Retake quiz</button>
+                </div>
+            </article>
+        </section>
+
+        <section id="admin" class="tab-panel" aria-labelledby="admin-tab" hidden>
+            <div class="section-heading"><div><p class="eyebrow">Owner view</p><h2>Admin</h2></div></div>
+            <p class="admin-summary">Completion: <strong>6 of 14</strong> employees</p>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Employee</th><th>Chemical Safety</th><th>Standard Cleaning</th><th>Customer Service</th></tr></thead>
+                    <tbody>
+                        <tr><th scope="row">Maria</th><td><span class="status complete">Complete</span></td><td><span class="status progress">In progress (3/5)</span></td><td><span class="status not-started">Not started</span></td></tr>
+                        <tr><th scope="row">Jake</th><td><span class="status complete">Complete</span></td><td><span class="status complete">Complete</span></td><td><span class="status complete">Complete</span></td></tr>
+                        <tr><th scope="row">Tasha</th><td><span class="status complete">Complete</span></td><td><span class="status complete">Complete</span></td><td><span class="status complete">Complete</span></td></tr>
+                        <tr><th scope="row">Luis</th><td><span class="status complete">Complete</span></td><td><span class="status complete">Complete</span></td><td><span class="status progress">In progress (3/5)</span></td></tr>
+                        <tr><th scope="row">Dana</th><td><span class="status complete">Complete</span></td><td><span class="status progress">In progress (3/5)</span></td><td><span class="status not-started">Not started</span></td></tr>
+                        <tr><th scope="row">Chris</th><td><span class="status complete">Complete</span></td><td><span class="status not-started">Not started</span></td><td><span class="status not-started">Not started</span></td></tr>
+                        <tr><th scope="row">Priya</th><td><span class="status complete">Complete</span></td><td><span class="status not-started">Not started</span></td><td><span class="status not-started">Not started</span></td></tr>
+                        <tr><th scope="row">Omar</th><td><span class="status progress">In progress (3/5)</span></td><td><span class="status not-started">Not started</span></td><td><span class="status not-started">Not started</span></td></tr>
+                        <tr><th scope="row">Beth</th><td><span class="status progress">In progress (3/5)</span></td><td><span class="status not-started">Not started</span></td><td><span class="status not-started">Not started</span></td></tr>
+                        <tr><th scope="row">Ray</th><td><span class="status not-started">Not started</span></td><td><span class="status not-started">Not started</span></td><td><span class="status not-started">Not started</span></td></tr>
+                        <tr><th scope="row">Nina</th><td><span class="status not-started">Not started</span></td><td><span class="status not-started">Not started</span></td><td><span class="status not-started">Not started</span></td></tr>
+                        <tr><th scope="row">Sam</th><td><span class="status not-started">Not started</span></td><td><span class="status not-started">Not started</span></td><td><span class="status not-started">Not started</span></td></tr>
+                        <tr><th scope="row">Alex</th><td><span class="status not-started">Not started</span></td><td><span class="status not-started">Not started</span></td><td><span class="status not-started">Not started</span></td></tr>
+                        <tr><th scope="row">Jordan</th><td><span class="status not-started">Not started</span></td><td><span class="status not-started">Not started</span></td><td><span class="status not-started">Not started</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <nav class="tab-nav" aria-label="Main navigation">
+        <button id="modules-tab" class="tab-button is-active" type="button" data-tab="modules"><span>▦</span>Modules</button>
+        <button id="quiz-tab" class="tab-button" type="button" data-tab="quiz"><span>✓</span>Quiz</button>
+        <button id="admin-tab" class="tab-button" type="button" data-tab="admin"><span>◉</span>Admin</button>
+    </nav>
 </body>
 </html>
