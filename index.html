@@ -9,17 +9,37 @@
     <script src="app.js" defer></script>
 </head>
 <body>
-    <header class="site-header">
+    <section id="login-view" class="login-view" aria-labelledby="login-heading">
+        <div class="login-card">
+            <img class="login-logo" src="logo.png" alt="CleanPro logo">
+            <h1 id="login-heading">Welcome back</h1>
+            <p class="login-subtitle">Sign in to continue your training.</p>
+            <form id="login-form" novalidate>
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" value="maria@example.com" autocomplete="off">
+                <label for="password">Password</label>
+                <input id="password" name="password" type="password" value="••••••••" autocomplete="off">
+                <button class="button primary-button login-submit" type="submit">Sign in</button>
+            </form>
+            <button id="admin-login" class="button text-button login-admin" type="button">Continue as admin</button>
+            <p class="login-note">Demo only. No real login.</p>
+        </div>
+    </section>
+
+    <header class="site-header" hidden>
         <a class="brand" href="#modules" aria-label="CleanPro Training home">
             <img src="logo.png" alt="CleanPro logo">
         </a>
-        <span class="demo-label">Demo</span>
+        <div class="header-actions">
+            <span class="demo-label">Demo</span>
+            <button id="sign-out" class="signout-link" type="button">Sign out</button>
+        </div>
     </header>
 
-    <main>
+    <main id="app-content" hidden>
         <section class="page-heading">
-            <p class="eyebrow">Welcome back, Maria</p>
-            <h1>Your training</h1>
+            <p class="eyebrow">Hi, Maria</p>
+            <h1 id="page-heading-title">Next up: Mixing dangers</h1>
             <p class="heading-copy"></p>
         </section>
 
@@ -113,7 +133,7 @@
         </section>
 
         <section id="quiz" class="tab-panel" aria-labelledby="quiz-tab" hidden>
-            <div class="section-heading"><div><p class="eyebrow">Module 1 · Checkpoint</p><h2>Quick quiz</h2></div><span class="question-number">Question 1 of 1</span></div>
+            <div class="section-heading"><div><p id="quiz-label" class="eyebrow"></p><h2>Quick quiz</h2><p class="quiz-helper">Get every question right to finish this lesson.</p></div><span class="question-number">Question 1 of 1</span></div>
             <article class="quiz-card">
                 <h3>Which two products should never be mixed?</h3>
                 <form id="quiz-form">
@@ -161,7 +181,7 @@
         </section>
     </main>
 
-    <nav class="tab-nav" aria-label="Main navigation">
+    <nav class="tab-nav" aria-label="Main navigation" hidden>
         <button id="modules-tab" class="tab-button is-active" type="button" data-tab="modules"><span>▦</span>Modules</button>
         <button id="quiz-tab" class="tab-button" type="button" data-tab="quiz"><span>✓</span>Quiz</button>
         <button id="admin-tab" class="tab-button" type="button" data-tab="admin"><span>◉</span>Admin</button>

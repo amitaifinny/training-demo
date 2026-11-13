@@ -2,9 +2,21 @@
 const tabButtons = document.querySelectorAll('.tab-button');
 const panels = document.querySelectorAll('.tab-panel');
 const lessonView = document.querySelector('#lesson');
+const pageHeadingTitle = document.querySelector('#page-heading-title');
+const quizLabel = document.querySelector('#quiz-label');
+const currentLessonData = { moduleNumber: 1, lessonNumber: 4 };
+const loginView = document.querySelector('#login-view');
+const loginForm = document.querySelector('#login-form');
+const adminLogin = document.querySelector('#admin-login');
+const appContent = document.querySelector('#app-content');
+const siteHeader = document.querySelector('.site-header');
+const tabNav = document.querySelector('.tab-nav');
+const signOut = document.querySelector('#sign-out');
 
 function showTab(tabName) {
     lessonView.hidden = true;
+    pageHeadingTitle.hidden = tabName === 'quiz';
+    pageHeadingTitle.textContent = tabName === 'admin' ? 'Team Progress' : 'Next up: Mixing dangers';
     panels.forEach((panel) => {
         panel.hidden = panel.id !== tabName;
         panel.classList.toggle('is-active', panel.id === tabName);
@@ -17,9 +29,26 @@ function showTab(tabName) {
     window.scrollTo(0, 0);
 }
 
+quizLabel.textContent = `MODULE ${currentLessonData.moduleNumber} · LESSON ${currentLessonData.lessonNumber} QUIZ`;
+
 tabButtons.forEach((button) => {
     button.addEventListener('click', () => showTab(button.dataset.tab));
 });
+
+function enterApp(tabName) {
+    loginView.hidden = true;
+    siteHeader.hidden = false;
+    appContent.hidden = false;
+    tabNav.hidden = false;
+    showTab(tabName);
+}
+
+loginForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    enterApp('modules');
+});
+
+adminLogin.addEventListener('click', () => enterApp('admin'));
 
 // Keep the module action label in sync with the current submodule.
 const submodules = [
@@ -61,6 +90,8 @@ function showLesson() {
         button.setAttribute('aria-current', isActive ? 'page' : 'false');
     });
     lessonView.hidden = false;
+    pageHeadingTitle.hidden = false;
+    pageHeadingTitle.textContent = 'Module 1: Mixing Dangers';
     window.scrollTo(0, 0);
     renderLesson();
 }
@@ -79,6 +110,15 @@ document.querySelectorAll('[data-lesson-next]').forEach((button) => {
     });
 });
 document.querySelector('[data-tab-target="quiz"]').addEventListener('click', () => showTab('quiz'));
+
+signOut.addEventListener('click', () => {
+    lessonStep = 1;
+    renderLesson();
+    loginView.hidden = false;
+    siteHeader.hidden = true;
+    appContent.hidden = true;
+    tabNav.hidden = true;
+});
 
 // Quiz feedback keeps the demo state simple and predictable.
 const quizForm = document.querySelector('#quiz-form');

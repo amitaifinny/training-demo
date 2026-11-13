@@ -31,6 +31,19 @@ body {
 button, input { font: inherit; }
 button { cursor: pointer; }
 
+.login-view { align-items: center; display: flex; justify-content: center; min-height: 100vh; padding: 24px 20px; }
+.login-card { background: var(--card); border-radius: 16px; max-width: 420px; padding: 28px 22px; text-align: center; width: 100%; }
+.login-logo { display: block; margin: 0 auto 22px; max-height: 58px; max-width: 220px; }
+.login-card h1 { font-size: 30px; margin-bottom: 6px; }
+.login-subtitle { margin-bottom: 24px; }
+.login-card form { text-align: left; }
+.login-card label { display: block; font-size: 13px; font-weight: 700; margin: 0 0 6px; }
+.login-card input { background: var(--bg); border: 1px solid var(--card); border-radius: 10px; color: var(--text); min-height: 44px; padding: 10px 12px; width: 100%; }
+.login-card input + label { margin-top: 14px; }
+.login-submit { margin-top: 20px; min-height: 44px; width: 100%; }
+.login-admin { min-height: 44px; width: 100%; }
+.login-note { font-size: 12px; margin: 18px 0 0; opacity: .7; }
+
 .site-header {
     align-items: center;
     background: var(--accent);
@@ -42,6 +55,8 @@ button { cursor: pointer; }
 
 .brand img { display: block; max-height: 42px; max-width: 180px; }
 .demo-label { border: 1px solid var(--bg); border-radius: 99px; color: var(--bg); font-size: 12px; font-weight: 700; padding: 3px 10px; }
+.header-actions { align-items: center; display: flex; gap: 12px; }
+.signout-link { background: transparent; border: 0; color: var(--bg); font-size: 12px; font-weight: 700; padding: 8px 0; }
 main { margin: 0 auto; max-width: 760px; padding: 28px 20px 30px; }
 .page-heading { border-bottom: 1px solid var(--card); margin-bottom: 26px; padding-bottom: 22px; }
 .eyebrow, .module-kicker { color: var(--accent); font-size: 12px; font-weight: 800; letter-spacing: .08em; margin: 0 0 4px; text-transform: uppercase; }
@@ -95,6 +110,7 @@ h3 { font-size: 18px; line-height: 1.25; margin: 4px 0 0; }
 .locked-progress { height: 6px; margin-bottom: 0; }
 .locked-count { background: var(--locked); bottom: 20px; color: var(--locked-bg); position: absolute; right: 20px; }
 .quiz-card h3 { font-size: 22px; margin-bottom: 22px; }
+.quiz-helper { color: var(--muted); font-size: 14px; margin: 6px 0 0; }
 fieldset { border: 0; margin: 0 0 20px; padding: 0; }
 .answer-option { align-items: center; background: var(--bg); border: 2px solid transparent; border-radius: 10px; display: flex; gap: 12px; margin-bottom: 10px; padding: 13px; }
 .answer-option:has(input:checked) { border-color: var(--accent); }
